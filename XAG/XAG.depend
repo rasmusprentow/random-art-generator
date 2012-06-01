@@ -8,7 +8,7 @@
 	<string.h>
 	"bmpwrap.h"
 
-1338546203 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
+1338552124 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -21,11 +21,12 @@
 
 1338537231 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
 
-1338498257 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+1338561596 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
 
-1338500541 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+1338565185 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+	"metapicture.h"
 
-1338546547 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
+1338546675 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -33,4 +34,19 @@
 	<time.h>
 	<sys/time.h>
 	"walker.h"
+
+1338559784 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\test.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"main.h"
+	"bmpwrap.h"
+	"walker.h"
+
+1338560867 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
+
+1338564879 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
 

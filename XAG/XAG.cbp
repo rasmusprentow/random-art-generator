@@ -27,13 +27,35 @@
 					<Add option="-s" />
 				</Linker>
 			</Target>
+			<Target title="Test">
+				<Option output="bin\Test\XAG" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin\Test\" />
+				<Option object_output="obj\Test\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="bmpwrap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bmpwrap.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="main.h" />
+		<Unit filename="walker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="walker.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
