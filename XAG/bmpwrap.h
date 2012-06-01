@@ -1,3 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdint.h>
+#include <time.h>
+#include <string.h>
+
+
 #ifndef BMPWRAP_H_INCLUDED
 #define BMPWRAP_H_INCLUDED
 
