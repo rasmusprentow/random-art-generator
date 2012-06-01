@@ -19,11 +19,17 @@
 	"bmpwrap.h"
 	"walker.h"
 
-1338537231 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
+1338566463 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
 
-1338561596 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+1338566246 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
 
-1338565185 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+1338566469 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
 	"metapicture.h"
 
 1338546675 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
@@ -46,7 +52,9 @@
 	"bmpwrap.h"
 	"walker.h"
 
-1338560867 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
+1338566412 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
+	"metapicture.h"
 
-1338564879 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
+1338566380 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
+	"bmpwrap.h"
 

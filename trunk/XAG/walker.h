@@ -10,4 +10,9 @@ long int move(long int, struct metapicture);
 long int getX(long int , struct metapicture);
 
 
+struct walker {
+	long int p;
+	void (*colorf)(long int);
+};
+
 #endif // WALKER_H_INCLUDED

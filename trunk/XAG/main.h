@@ -25,9 +25,5 @@ int preferedRating;
 int forceYes = 0;
 
 
-struct walker {
-	long int p;
-	void (*colorf)(long int);
-};
 
 #endif // MAIN_H_INCLUDED
