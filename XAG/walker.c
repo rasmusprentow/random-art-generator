@@ -69,6 +69,11 @@ long int getX(long int p,  struct metapicture* mp){
 
 
 void walk(struct metapicture* mp){
+    seed();
+
+
+
+
     long int dr = abs(rand()* rand()* rand());
     long int ur =  abs(rand()* rand()* rand());//seed();
     long int dg =  abs(rand()* rand()* rand());//seed();
@@ -76,11 +81,11 @@ void walk(struct metapicture* mp){
     long int db = abs( rand()* rand()* rand());//seed();
     long int ub = abs( rand()* rand()* rand());//seed();
 	struct walker walkers[6] = { 	{ (dr%mp->size)  , &downRed },
-	 							 	{ (ur%mp->size)  , &downRed },
+	 							 	{ (ur%mp->size)  , &upRed },
 									{ (dg%mp->size)  , &downGreen },
-									{ (ug%mp->size)  , &downGreen },
+									{ (ug%mp->size)  , &upGreen },
 									{ (db%mp->size)  , &downBlue },
-									{ (ub%mp->size)  , &downBlue }
+									{ (ub%mp->size)  , &upBlue }
 								};
 
 	/*struct walker walkers[6] = { 	{ (dr%size)  , &downRed },
@@ -105,7 +110,7 @@ void walk(struct metapicture* mp){
 			}
 		}
         int k ;
-		for(k = 0; k < 1; k++)
+		for(k = 0; k < 6; k++)
 		{
 
 
