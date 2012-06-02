@@ -11,40 +11,40 @@
 
 
 
-void downRed(long int d){
-	if(pic[d].red > 0){
-		pic[d].red -= 1;
+void downRed(long int d, struct metapicture* mp){
+	if(mp->pic[d].red > 0){
+		mp->pic[d].red -= 1;
 	}
 }
 
-void upRed(long int d){
-	if(pic[d].red < 255){
-		pic[d].red += 1;
+void upRed(long int d, struct metapicture* mp){
+	if(mp->pic[d].red < 255){
+		mp->pic[d].red += 1;
 	}
 }
 
 
-void upGreen(long int d){
-	if(pic[d].green < 255){
-		pic[d].green += 1;
+void upGreen(long int d, struct metapicture* mp){
+	if(mp->pic[d].green < 255){
+		mp->pic[d].green += 1;
 	}
 }
 
-void downGreen(long int d){
-	if(pic[d].green > 0){
-		pic[d].green -= 1;
+void downGreen(long int d, struct metapicture* mp){
+	if(mp->pic[d].green > 0){
+		mp->pic[d].green -= 1;
 	}
 }
 
-void downBlue(long int d){
-	if(pic[d].blue > 0){
-		pic[d].blue -= 1;
+void downBlue(long int d, struct metapicture* mp){
+	if(mp->pic[d].blue > 0){
+		mp->pic[d].blue -= 1;
 	}
 }
 
-void upBlue(long int d){
-	if(pic[d].blue < 255){
-		pic[d].blue += 1;
+void upBlue(long int d, struct metapicture* mp){
+	if(mp->pic[d].blue < 255){
+		mp->pic[d].blue += 1;
 	}
 }
 
@@ -60,8 +60,8 @@ void seed()
 
 }
 
-long int getX(long int p,  struct metapicture mp){
-	return (long int)(p)%mp.width;
+long int getX(long int p,  struct metapicture* mp){
+	return (long int)(p)%mp->width;
 }
 
 
@@ -93,15 +93,15 @@ void walk(struct metapicture* mp){
 */
 	long int j;
 	int p = 1;
-	for(j = 0; j < iterations; j++){
-		if(j % printPercent == 0 )
+	for(j = 0; j < mp->iterations; j++){
+		if(j % mp->printPercentage == 0 )
 		{
-			if(printBmpTemp){
-				printPic(p,w,h,outputfilename);
+			if(mp->printBmpTemp){
+				printPic(p,mp);
 				p++;
 			}
-			if(verbose){
-				printf("%f \n", ((double)j/iterations)*100);
+			if(mp->verbose){
+				printf("%f \n", ((double)j/mp->iterations)*100);
 			}
 		}
         int k ;
@@ -113,29 +113,29 @@ void walk(struct metapicture* mp){
 				printf("Too low");
 				exit(0);
 			}
-			if(walkers[k].p > size){
-				printf("Too high p-sp:%li, Size %li, getX(p):  %li",(walkers[k].p - sp),size, getX(walkers[k].p));
+			if(walkers[k].p > mp->size){
+			//	printf("Too high p-sp:%li, Size %li, getX(p):  %li",(walkers[k].p - sp),mp->size, getX(walkers[k].p, mp));
 				exit(0);
 			}
-			walkers[k].p = move(walkers[k].p);
-			walkers[k].colorf(walkers[k].p);
+			walkers[k].p = move(walkers[k].p,mp);
+			walkers[k].colorf(walkers[k].p, mp);
 		}
 
-        if(j % seedRenew == 0 && j != 0)
+        if(j % mp->seedRenew == 0 && j != 0)
         {
              seed();
         }
 	}
- 	printf("Starting to print: %s\n", outputfilename);
-	printPic(0, w,h,outputfilename );
+ 	printf("Starting to print: %s\n", mp->name);
+	printPic(0,mp );
 }
 
 
-long int move (long int p, struct metapicture mp)
+long int move (long int p, struct metapicture* mp)
 {
-     int w = mp.width;
-     int h = mp.height;
-     long int size = w * h;
+     int w = mp->width;
+
+     long int size = mp->size;
      switch (rand() % 4) {
         case 0: // UP
 			if(p > w - 1) //

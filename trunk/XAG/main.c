@@ -34,6 +34,37 @@ void printUsage(char * name){
 }
 
 int main(int argc, char *argv[]){
+   // int h = 7500;
+   // int w = 5000;
+
+    // width point - Aka. upper right corner
+   // long int wp = 0;
+    // starting point point - Aka. upper left corner
+   // long int sp = 0;
+    //long int size;
+    //long int iterations = 1000000000;
+    //int seedRenew       = 1000;
+    //int printPercent    = 1000000;
+  //  int verbose = 0;
+   // int printBmpTemp = 0;
+    unsigned char initialRed = 127;
+    unsigned char initialGreen = 127;
+    unsigned char initialBlue = 127;
+    int forceYes = 0;
+    struct metapicture mp = {
+        .size = 400*400,
+        .width = 400,
+        .height = 400,
+        .name = "image",
+        .pic = NULL,
+        .iterations = 100000000,
+        .verbose = 1,
+        .printBmpTemp = 0,
+        .seedRenew = 1000,
+        .printPercentage = 1000000
+    };
+
+
 	int oi;
 	for(oi = 1; oi < argc; oi++){
 		if(	strstr(argv[oi], "--help") != NULL){
@@ -44,29 +75,30 @@ int main(int argc, char *argv[]){
 			switch(argv[oi][1]){
 
 				case 'h':
-					h = atoi(argv[oi+1]);
+					mp.height = atoi(argv[oi+1]);
 					break;
 				case 'w':
-					w = atoi(argv[oi+1]);
+					mp.width = atoi(argv[oi+1]);
 					break;
 				case 'o':
-					outputfilename = argv[oi+1];
+                    strcpy(argv[oi+1],mp.name);
+
 					break;
 				case 'i':
-					iterations = pow(atoi(argv[oi+1]),atoi(argv[oi+2]));
+					mp.iterations = pow(atoi(argv[oi+1]),atoi(argv[oi+2]));
 					break;
 				case 'v':
-					verbose = 1;
+					mp.verbose = 1;
 					break;
 				case 'p':
-					printPercent = atoi(argv[oi+1]);
-					verbose = 1;
+					mp.printPercentage = atoi(argv[oi+1]);
+					mp.verbose = 1;
 					break;
 				case 't':
-					printBmpTemp  = 1;
+					mp.printBmpTemp  = 1;
 					break;
 				case 's':
-					seedRenew = atoi(argv[oi+1]);
+					mp.seedRenew = atoi(argv[oi+1]);
 					break;
 				case 'r':
 					initialRed = atoi(argv[oi+1]);
@@ -88,20 +120,19 @@ int main(int argc, char *argv[]){
 	}
 	//seed();
 
-    seed();
 
 
-	printf("Height: \t\t%d \nWidth:  \t\t%d \n", h, w);
-	printf("Iterations: \t\t%li \noutputfile: \t\t%s \n", iterations, outputfilename);
-	printf("SeedRenew: \t\t%d\t(%li times) \nPrintPercent: \t\t%d\t(%li times)", seedRenew, iterations/seedRenew,printPercent, iterations/printPercent);
-	if(printBmpTemp){
+	printf("Height: \t\t%d \nWidth:  \t\t%d \n", mp.height, mp.width);
+	printf("Iterations: \t\t%li \noutputfile: \t\t%s \n", mp.iterations, mp.name);
+	printf("SeedRenew: \t\t%d\t(%li times) \nPrintPercent: \t\t%li\t(%li times)", mp.seedRenew, mp.iterations/mp.seedRenew,mp.printPercentage, mp.iterations/mp.printPercentage);
+	if(mp.printBmpTemp){
 		printf("NB: you get a copy for each");
 	}
 //	printf("\n%d\n",sizeof(BITMAPINFOHEADER));
-	printf("\nEstimated HD usage: \t%f (KiB)\n", printBmpTemp ? (double)(1+(iterations/printPercent))*((size*4)/1024) : (double)(size*4)/1024);
-	printf("Est. memory usage: \t%f (KiB)\n", (double)(size*4)/1024);
-	printf("Save tmp files: \t%s \n", printBmpTemp ? "Yes":"No" );
-	printf("Verbose: \t\t%s \n", verbose ? "Yes":"No" );
+	printf("\nEstimated HD usage: \t%f (KiB)\n", mp.printBmpTemp ? (double)(1+(mp.iterations/mp.printPercentage))*((mp.size*4)/1024) : (double)(mp.size*4)/1024);
+	printf("Est. memory usage: \t%f (KiB)\n", (double)(mp.size*4)/1024);
+	printf("Save tmp files: \t%s \n", mp.printBmpTemp ? "Yes":"No" );
+	printf("Verbose: \t\t%s \n", mp.verbose ? "Yes":"No" );
 	printf("Initial color: \t\t%d %d %d \n", initialRed,initialGreen, initialBlue );
 	printf("Draw picture (y/n):" );
 	if(!forceYes){
@@ -110,7 +141,8 @@ int main(int argc, char *argv[]){
 		}
 	}
 	printf("Starting to draw: \n");
-    walk();
+	preparePicture(initialRed, initialGreen, initialBlue, &mp);
+    walk(&mp);
 
 	return 0;
 }
