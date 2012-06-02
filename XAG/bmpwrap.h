@@ -1,3 +1,6 @@
+
+#ifndef BMPWRAP_H_INCLUDED
+#define BMPWRAP_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -5,24 +8,12 @@
 #include <time.h>
 #include <string.h>
 
-
-#ifndef BMPWRAP_H_INCLUDED
-#define BMPWRAP_H_INCLUDED
-
+#include "metapicture.h"
 //////////////////////////
 // Library to make BMPS
 
 
 
-struct dot * pic;
-
-
-struct dot {
- 	unsigned char red;
-	unsigned char green;
-	unsigned char blue;
-	unsigned char alpha;
-};
 
 
 
@@ -52,6 +43,6 @@ typedef struct {
   uint32_t nimpcolors;
 } BITMAPINFOHEADER;
 
-void printPic(int, int,int, char *);
+void printPic(int,struct metapicture *);
 
 #endif // BMPWRAP_H_INCLUDED

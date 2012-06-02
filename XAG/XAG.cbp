@@ -50,8 +50,18 @@
 		<Unit filename="bmpwrap.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
+			<Option target="Debug" />
+			<Option target="Release" />
 		</Unit>
 		<Unit filename="main.h" />
+		<Unit filename="metapicture.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="metapicture.h" />
+		<Unit filename="test.c">
+			<Option compilerVar="CC" />
+			<Option target="Test" />
+		</Unit>
 		<Unit filename="walker.c">
 			<Option compilerVar="CC" />
 		</Unit>

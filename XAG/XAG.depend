@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1338498109 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.c
+1338642539 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -8,7 +8,7 @@
 	<string.h>
 	"bmpwrap.h"
 
-1338552124 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
+1338643117 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -19,20 +19,22 @@
 	"bmpwrap.h"
 	"walker.h"
 
-1338566463 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
+1338642102 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
 
-1338566246 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+1338642739 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	<stdint.h>
 	<time.h>
 	<string.h>
-
-1338566469 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
 	"metapicture.h"
 
-1338546675 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
+1338642802 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+	"metapicture.h"
+	"bmpwrap.h"
+
+1338640975 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -52,9 +54,13 @@
 	"bmpwrap.h"
 	"walker.h"
 
-1338566412 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
+1338642280 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
 	"metapicture.h"
 
-1338566380 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
-	"bmpwrap.h"
+1338642775 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
 

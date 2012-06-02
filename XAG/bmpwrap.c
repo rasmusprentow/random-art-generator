@@ -7,14 +7,13 @@
 
 #include "bmpwrap.h"
 
-void printPic(int count, int w, int h, char* outputfilename){
+void printPic(int count, struct metapicture * mp){
 
-    long int size = h * w;
 	struct bmpfile_magic magic;
 	magic.magic[0] = 'B';
 	magic.magic[1] = 'M';
 
-	uint32_t filesz = 54 + size * sizeof(struct dot);
+	uint32_t filesz = 54 + mp->size * sizeof(struct dot);
 
 	struct bmpfile_header bmp_header = {
 		.filesz = filesz,
@@ -27,12 +26,12 @@ void printPic(int count, int w, int h, char* outputfilename){
 	BITMAPINFOHEADER dib_header =
 	{
 		.header_sz = 40,
-		.width = w,
-		.height = h,
+		.width = mp->width,
+		.height = mp->height,
 		.nplanes = 1,
 		.bitspp = 32,
 		.compress_type = 0,
-		.bmp_bytesz = size * sizeof(struct dot),
+		.bmp_bytesz = mp->size * sizeof(struct dot),
 		.hres = 2835,
 		.vres = 2835,
 		.ncolors = 0,
@@ -40,12 +39,9 @@ void printPic(int count, int w, int h, char* outputfilename){
 	};
 
 
-	if(outputfilename == 0) {
-		outputfilename = malloc(10);
-		outputfilename = "image.bmp";
-	}
-	char * ofn = malloc(sizeof(outputfilename) + 30);
-	strcpy(ofn,outputfilename);
+
+	char * ofn = malloc(sizeof(mp->name) + 30);
+	strcpy(ofn,mp->name);
 	if(count > 0){
 
 
@@ -88,7 +84,7 @@ void printPic(int count, int w, int h, char* outputfilename){
 	fwrite(&magic, sizeof(struct bmpfile_magic), 1,fp);
 	fwrite(&bmp_header, sizeof(struct bmpfile_header), 1,fp);
 	fwrite(&dib_header, sizeof(BITMAPINFOHEADER), 1,fp);
-	fwrite(pic, sizeof(struct dot), size,fp);
+	fwrite(mp->pic, sizeof(struct dot), mp->size,fp);
 
 
 	/*
