@@ -57,7 +57,7 @@ int main(int argc, char *argv[]){
         .height = 400,
         .name = "image",
         .pic = NULL,
-        .iterations = 100000000,
+        .iterations = 7500000,  //.iterations = 6500000,
         .verbose = 1,
         .printBmpTemp = 0,
         .seedRenew = 1000,
@@ -120,11 +120,11 @@ int main(int argc, char *argv[]){
 	}
 	//seed();
 
-
+    mp.size = mp.height * mp.width;
 
 	printf("Height: \t\t%d \nWidth:  \t\t%d \n", mp.height, mp.width);
 	printf("Iterations: \t\t%li \noutputfile: \t\t%s \n", mp.iterations, mp.name);
-	printf("SeedRenew: \t\t%d\t(%li times) \nPrintPercent: \t\t%li\t(%li times)", mp.seedRenew, mp.iterations/mp.seedRenew,mp.printPercentage, mp.iterations/mp.printPercentage);
+	printf("SeedRenew: \t\t%li\t(%li times) \nPrintPercent: \t\t%li\t(%li times)", mp.seedRenew, mp.iterations/mp.seedRenew,mp.printPercentage, mp.iterations/mp.printPercentage);
 	if(mp.printBmpTemp){
 		printf("NB: you get a copy for each");
 	}
@@ -142,6 +142,7 @@ int main(int argc, char *argv[]){
 	}
 	printf("Starting to draw: \n");
 	preparePicture(initialRed, initialGreen, initialBlue, &mp);
+	verifyPictureWhenRedOnly(&mp);
     walk(&mp);
 
 	return 0;

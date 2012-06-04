@@ -19,3 +19,24 @@ void preparePicture(int initialRed, int initialBlue, int initialGreen, struct me
 	}
 
 }
+
+
+
+void verifyPictureWhenRedOnly(struct metapicture * mp)
+{
+    //printf("verify\n");
+    int i;
+    for( i = 0; i < mp->size; i++){
+        if(mp->pic[0].green != 127){
+            printf("Error green");
+        }
+
+        if(mp->pic[0].blue != 127){
+            printf("Error blue");
+        }
+        if(mp->pic[0].alpha != 0){
+            printf("Error blue");
+        }
+    }
+
+}
