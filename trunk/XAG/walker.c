@@ -110,7 +110,7 @@ void walk(struct metapicture* mp){
 			}
 		}
         int k ;
-		for(k = 0; k < 6; k++)
+		for(k = 0; k < 1; k++)
 		{
 
 
@@ -128,59 +128,59 @@ void walk(struct metapicture* mp){
 
         if(j % mp->seedRenew == 0 && j != 0)
         {
+            verifyPictureWhenRedOnly(mp);
              seed();
         }
 	}
  	printf("Starting to print: %s\n", mp->name);
+ 	 verifyPictureWhenRedOnly(mp);
 	printPic(0,mp );
 }
 
 
 long int move (long int p, struct metapicture* mp)
 {
-     int w = mp->width;
 
-     long int size = mp->size;
      switch (rand() % 4) {
         case 0: // UP
-			if(p > w - 1) //
+			if(p > mp->width - 1) //
 			{
 				// Go one row up
 			//	printf("up1");
-				p = p - w;
+				p = p - mp->width;
 			}
 			else
 			{
 				// Go back to down row
 			//	printf("up2");
-				p = (p + size) - w;
+				p = (p + mp->size) - mp->width;
 			}
 		break;
 		case 1: // DOWN
-			if(p < ((size) - w)) // getY(p) < h
+			if(p < ((mp->size) - mp->width)) // getY(p) < h
 			{
 				// Go one row up
 			//	printf("down1");
-				p = p + w;
+				p = p + mp->width;
 			}
 			else
 			{
 				// Go back to buttom row
-				p = (p - size) + w;
+				p = (p - mp->size) + mp->width;
 				//	printf("down2");
 			}
 		break;
         case 2: // LEFT
 			//	printf("l");
 			if(getX(p, mp) == 0){
-				p = p + w - 1;
+				p = p + mp->width - 1;
 			} else {
 				p = p - 1;
 			}
 		break;
         case 3: // RIGHT
-			if(getX(p, mp) == w - 1){
-				p = p - w + 1;
+			if(getX(p, mp) == mp->width - 1){
+				p = p - mp->width + 1;
 		//		printf("r1");
 			} else {
 		//		printf("r2");

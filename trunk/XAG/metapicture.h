@@ -20,7 +20,7 @@ struct metapicture {
     char name[20];
     struct dot * pic;
     long int iterations;
-    int seedRenew;
+    long int seedRenew;
     long int printPercentage;
     int printBmpTemp;
     int verbose;
@@ -29,6 +29,9 @@ struct metapicture {
 
 void preparePicture(int ,int , int , struct metapicture*);
 
-
+/**
+ * This function verifies the picture. It only makes sense to use it when red walkers are used.
+ */
+void verifyPictureWhenRedOnly(struct metapicture *);
 
 #endif // METAPICTURE_H_INCLUDED

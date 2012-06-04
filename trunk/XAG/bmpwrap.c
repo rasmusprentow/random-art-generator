@@ -10,10 +10,10 @@
 void printPic(int count, struct metapicture * mp){
 
 	struct bmpfile_magic magic;
-	magic.magic[0] = 'B';
-	magic.magic[1] = 'M';
+	magic.magic[0] = 66;
+	magic.magic[1] = 77;
 
-	uint32_t filesz = 54 + mp->size * sizeof(struct dot);
+	uint32_t filesz = 54 + (mp->size * sizeof(struct dot));
 
 	struct bmpfile_header bmp_header = {
 		.filesz = filesz,
@@ -84,7 +84,10 @@ void printPic(int count, struct metapicture * mp){
 	fwrite(&magic, sizeof(struct bmpfile_magic), 1,fp);
 	fwrite(&bmp_header, sizeof(struct bmpfile_header), 1,fp);
 	fwrite(&dib_header, sizeof(BITMAPINFOHEADER), 1,fp);
-	fwrite(mp->pic, sizeof(struct dot), mp->size,fp);
+	int i;
+    for( i = 0; i < mp->size; i++){
+        fwrite(&mp->pic[i], 4, 1,fp);
+    }
 
 
 	/*
