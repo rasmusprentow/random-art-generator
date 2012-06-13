@@ -64,3 +64,57 @@
 	<stdint.h>
 	<time.h>
 
+1339630201 source:c:\users\aba\documents\programmering\randomart\xag\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"main.h"
+	"bmpwrap.h"
+	"walker.h"
+
+1339621482 c:\users\aba\documents\programmering\randomart\xag\main.h
+
+1339621482 c:\users\aba\documents\programmering\randomart\xag\bmpwrap.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"metapicture.h"
+
+1339630273 c:\users\aba\documents\programmering\randomart\xag\metapicture.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+
+1339621482 c:\users\aba\documents\programmering\randomart\xag\walker.h
+	"metapicture.h"
+	"bmpwrap.h"
+
+1339621482 source:c:\users\aba\documents\programmering\randomart\xag\metapicture.c
+	"metapicture.h"
+
+1339621482 source:c:\users\aba\documents\programmering\randomart\xag\bmpwrap.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"bmpwrap.h"
+
+1339628070 source:c:\users\aba\documents\programmering\randomart\xag\walker.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<sys/time.h>
+	"walker.h"
+
