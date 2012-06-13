@@ -11,6 +11,7 @@
 
 
 
+
 void downRed(long int d, struct metapicture* mp){
 	if(mp->pic[d].red > 0){
 		mp->pic[d].red -= 1;
