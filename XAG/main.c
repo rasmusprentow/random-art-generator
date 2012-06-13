@@ -14,7 +14,7 @@
 #include "walker.h"
 
 
-
+#define DEBUG
 
 
 void printUsage(char * name){
