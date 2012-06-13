@@ -12,7 +12,7 @@
 
 
 #include "walker.h"
-
+#define DEBUG 1
 
 
 
@@ -51,13 +51,14 @@ int main(int argc, char *argv[]){
     unsigned char initialGreen = 127;
     unsigned char initialBlue = 127;
     int forceYes = 0;
+    const int val = 8;
     struct metapicture mp = {
-        .size = 400*400,
-        .width = 400,
-        .height = 400,
+        .size = val*val,
+        .width = val,
+        .height = val,
         .name = "image",
         .pic = NULL,
-        .iterations = 7500000,  //.iterations = 6500000,
+        .iterations = 7994,  //.iterations = 6500000,
         .verbose = 1,
         .printBmpTemp = 0,
         .seedRenew = 1000,
@@ -134,12 +135,14 @@ int main(int argc, char *argv[]){
 	printf("Save tmp files: \t%s \n", mp.printBmpTemp ? "Yes":"No" );
 	printf("Verbose: \t\t%s \n", mp.verbose ? "Yes":"No" );
 	printf("Initial color: \t\t%d %d %d \n", initialRed,initialGreen, initialBlue );
+	#ifndef DEBUG
 	printf("Draw picture (y/n):" );
 	if(!forceYes){
 		if(getchar() != 'y'){
 			exit(0);
 		}
 	}
+	#endif //DEBUG
 	printf("Starting to draw: \n");
 	preparePicture(initialRed, initialGreen, initialBlue, &mp);
 	verifyPictureWhenRedOnly(&mp);

@@ -12,8 +12,13 @@
 
 
 void downRed(long int d, struct metapicture* mp){
+    struct dot debugdot = mp->pic[d];
 	if(mp->pic[d].red > 0){
 		mp->pic[d].red -= 1;
+	}
+	else
+	{
+	    mp->pic[d].red = mp->pic[d].red;
 	}
 }
 
@@ -56,9 +61,40 @@ void seed()
 
     gettimeofday(&tp ,NULL);
 
-    srand( ( tp.tv_sec  * tp.tv_usec));
+    //srand( ( tp.tv_sec  * tp.tv_usec));
 
 }
+
+int rands(int iterations)
+{
+    int res = 0;
+    int i;
+    for (i = 0 ; i < iterations; i++)
+    {
+        res += rand();
+    }
+    return res;
+}
+
+int myrand()
+{
+    static long int seeds = 0;
+    static long int nextSeed = 10;
+    static long int counter = 10;
+
+    counter++;
+    if(counter >= nextSeed)
+    {
+        //struct timeval  tp;
+        //gettimeofday(&tp ,NULL);
+        srand( rands(0) + seeds + nextSeed );
+        seeds++;
+        nextSeed = nextSeed/2 + rand();
+        counter = 0;
+    }
+    return rand();
+}
+
 
 long int getX(long int p,  struct metapicture* mp){
 	return (long int)(p)%mp->width;
@@ -99,6 +135,11 @@ void walk(struct metapicture* mp){
 	long int j;
 	int p = 1;
 	for(j = 0; j < mp->iterations; j++){
+	    if(j == 4000000-129765-1)
+	    {
+            j = j+1;
+            j = j-1;
+	    }
 		if(j % mp->printPercentage == 0 )
 		{
 			if(mp->printBmpTemp){
@@ -126,7 +167,8 @@ void walk(struct metapicture* mp){
 			walkers[k].colorf(walkers[k].p, mp);
 		}
 
-        if(j % mp->seedRenew == 0 && j != 0)
+        //if(j % mp->seedRenew == 0 && j != 0)
+        if (0)
         {
             verifyPictureWhenRedOnly(mp);
              seed();
@@ -141,7 +183,7 @@ void walk(struct metapicture* mp){
 long int move (long int p, struct metapicture* mp)
 {
 
-     switch (rand() % 4) {
+     switch (myrand() % 4) {
         case 0: // UP
 			if(p > mp->width - 1) //
 			{
