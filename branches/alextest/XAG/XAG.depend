@@ -1,0 +1,120 @@
+# depslib dependency file v1.0
+1338818366 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"bmpwrap.h"
+
+1338818285 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"main.h"
+	"bmpwrap.h"
+	"walker.h"
+
+1338642102 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
+
+1338642739 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"metapicture.h"
+
+1338642802 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+	"metapicture.h"
+	"bmpwrap.h"
+
+1338817989 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<sys/time.h>
+	"walker.h"
+
+1338559784 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\test.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"main.h"
+	"bmpwrap.h"
+	"walker.h"
+
+1338817168 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
+	"metapicture.h"
+
+1338818271 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+
+1339630201 source:c:\users\aba\documents\programmering\randomart\xag\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"main.h"
+	"bmpwrap.h"
+	"walker.h"
+
+1339621482 c:\users\aba\documents\programmering\randomart\xag\main.h
+
+1339621482 c:\users\aba\documents\programmering\randomart\xag\bmpwrap.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"metapicture.h"
+
+1339630273 c:\users\aba\documents\programmering\randomart\xag\metapicture.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+
+1339621482 c:\users\aba\documents\programmering\randomart\xag\walker.h
+	"metapicture.h"
+	"bmpwrap.h"
+
+1339621482 source:c:\users\aba\documents\programmering\randomart\xag\metapicture.c
+	"metapicture.h"
+
+1339621482 source:c:\users\aba\documents\programmering\randomart\xag\bmpwrap.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"bmpwrap.h"
+
+1339628070 source:c:\users\aba\documents\programmering\randomart\xag\walker.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<sys/time.h>
+	"walker.h"
+
