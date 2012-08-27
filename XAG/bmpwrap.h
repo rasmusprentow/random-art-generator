@@ -41,7 +41,7 @@ typedef struct {
   int32_t vres;
   uint32_t ncolors;
   uint32_t nimpcolors;
-} BITMAPINFOHEADER;
+} BITMAPINFOHEADER2;
 
 void printPic(int,struct metapicture *);
 

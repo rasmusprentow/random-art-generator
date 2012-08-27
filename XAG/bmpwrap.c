@@ -23,7 +23,7 @@ void printPic(int count, struct metapicture * mp){
 	};
 
 
-	BITMAPINFOHEADER dib_header =
+	BITMAPINFOHEADER2 dib_header =
 	{
 		.header_sz = 40,
 		.width = mp->width,
@@ -83,7 +83,7 @@ void printPic(int count, struct metapicture * mp){
 
 	fwrite(&magic, sizeof(struct bmpfile_magic), 1,fp);
 	fwrite(&bmp_header, sizeof(struct bmpfile_header), 1,fp);
-	fwrite(&dib_header, sizeof(BITMAPINFOHEADER), 1,fp);
+	fwrite(&dib_header, sizeof(BITMAPINFOHEADER2), 1,fp);
 	int i;
     for( i = 0; i < mp->size; i++){
         fwrite(&mp->pic[i], 4, 1,fp);
