@@ -57,7 +57,7 @@ int main(int argc, char *argv[]){
         .height = 400,
         .name = "image",
         .pic = NULL,
-        .iterations = 7500000,  //.iterations = 6500000,
+        .iterations = 75000000,  //.iterations = 6500000,
         .verbose = 1,
         .printBmpTemp = 0,
         .seedRenew = 1000,

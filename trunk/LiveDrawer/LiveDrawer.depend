@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1346111145 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\livedrawer\main.c
+	<windows.h>
+	<gl/gl.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	<pthread.h>
+	"../XAG/bmpwrap.h"
+	"../XAG/walker.h"
+
+1346108024 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"metapicture.h"
+
+1346110634 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+
+1346110704 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+	"metapicture.h"
+	"bmpwrap.h"
+
+1346108030 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<string.h>
+	"bmpwrap.h"
+
+1338817168 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
+	"metapicture.h"
+
+1346110618 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdint.h>
+	<time.h>
+	<sys/time.h>
+	"walker.h"
+

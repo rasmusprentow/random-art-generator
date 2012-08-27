@@ -65,6 +65,10 @@ long int getX(long int p,  struct metapicture* mp){
 	return (long int)(p)%mp->width;
 }
 
+long int getY(long int p,  struct metapicture* mp){
+	return (long int)(p)/mp->height;
+}
+
 
 
 
@@ -111,7 +115,7 @@ void walk(struct metapicture* mp){
 			}
 		}
         int k ;
-		for(k = 0; k < 1; k++)
+		for(k = 0; k < 6; k++)
 		{
 
 
@@ -129,13 +133,18 @@ void walk(struct metapicture* mp){
 
         if(j % mp->seedRenew == 0 && j != 0)
         {
-            verifyPictureWhenRedOnly(mp);
+            //verifyPictureWhenRedOnly(mp);
              seed();
         }
 	}
- 	printf("Starting to print: %s\n", mp->name);
- 	 verifyPictureWhenRedOnly(mp);
-	printPic(0,mp );
+	if(mp->printBmp){
+
+        printf("Starting to print: %s\n", mp->name);
+         verifyPictureWhenRedOnly(mp);
+        printPic(0,mp );
+	}
+	mp->done = 1;
+    printf("\nDone\n");
 }
 
 

@@ -23,6 +23,8 @@ struct metapicture {
     long int seedRenew;
     long int printPercentage;
     int printBmpTemp;
+    int printBmp;
+    short int done;
     int verbose;
 
 };
