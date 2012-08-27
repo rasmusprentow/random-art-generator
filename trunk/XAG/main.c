@@ -60,6 +60,7 @@ int main(int argc, char *argv[]){
         .iterations = 75000000,  //.iterations = 6500000,
         .verbose = 1,
         .printBmpTemp = 0,
+        .printBmp = 1,
         .seedRenew = 1000,
         .printPercentage = 1000000
     };

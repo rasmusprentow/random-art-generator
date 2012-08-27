@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1338818366 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.c
+1346108030 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -8,7 +8,7 @@
 	<string.h>
 	"bmpwrap.h"
 
-1338818285 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
+1346109006 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -21,7 +21,7 @@
 
 1338642102 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\main.h
 
-1338642739 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
+1346108024 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\bmpwrap.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -30,11 +30,11 @@
 	<string.h>
 	"metapicture.h"
 
-1338642802 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+1346110704 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
 	"metapicture.h"
 	"bmpwrap.h"
 
-1338818439 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
+1346110618 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -57,7 +57,7 @@
 1338817168 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
 	"metapicture.h"
 
-1338818271 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
+1346110634 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
