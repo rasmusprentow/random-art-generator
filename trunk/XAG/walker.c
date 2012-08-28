@@ -5,7 +5,7 @@
 #include <time.h>
 
 #include <sys/time.h>
-
+#include <pthread.h>
 #include "walker.h"
 
 
@@ -85,22 +85,44 @@ void walk(struct metapicture* mp){
     long int ug =  abs(rand()* rand()* rand());//seed();
     long int db = abs( rand()* rand()* rand());//seed();
     long int ub = abs( rand()* rand()* rand());//seed();
-	struct walker walkers[6] = { 	{ (dr%mp->size)  , &downRed },
-	 							 	{ (ur%mp->size)  , &upRed },
-									{ (dg%mp->size)  , &downGreen },
-									{ (ug%mp->size)  , &upGreen },
-									{ (db%mp->size)  , &downBlue },
-									{ (ub%mp->size)  , &upBlue }
+	struct walker walkers[6] = { 	{ (dr%mp->size)  , &downRed, mp },
+	 							 	{ (ur%mp->size)  , &upRed, mp },
+									{ (dg%mp->size)  , &downGreen , mp},
+									{ (ug%mp->size)  , &upGreen, mp },
+									{ (db%mp->size)  , &downBlue, mp },
+									{ (ub%mp->size)  , &upBlue, mp }
 								};
 
-	/*struct walker walkers[6] = { 	{ (dr%size)  , &downRed },
-	 							 	{ (ur%size)  , &upRed },
-									{ (dg%size)  , &downGreen },
-									{ (ug%size)  , &upGreen },
-									{ (db%size)  , &downBlue },
-									{ (ub%size)  , &upBlue }
-								};
-*/
+	pthread_t threads[6];
+	int irets[6];
+	int k = 0;
+    for(k = 0; k < 6; k++)
+    {
+        irets[k] = pthread_create( &threads[k], NULL,walk_walker, (void*) &walkers[k]);
+    }
+
+
+    for(k = 0; k < 6; k++)
+    {
+
+        pthread_join(threads[k], NULL);
+    }
+
+    if(mp->printBmp){
+
+        printf("Starting to print: %s\n", mp->name);
+         //verifyPictureWhenRedOnly(mp);
+        printPic(0,mp );
+	}
+	mp->done = 1;
+    printf("\nDone\n");
+
+}
+
+void *walk_walker(void * w){
+    struct walker * walker = (struct walker *) w;
+    struct metapicture * mp = walker->mp;
+
 	long int j;
 	int p = 1;
 	for(j = 0; j < mp->iterations; j++){
@@ -114,22 +136,21 @@ void walk(struct metapicture* mp){
 				printf("%f \n", ((double)j/mp->iterations)*100);
 			}
 		}
-        int k ;
-		for(k = 0; k < 6; k++)
-		{
 
 
-			if(walkers[k].p < 0){
-				printf("Too low");
-				exit(0);
-			}
-			if(walkers[k].p > mp->size){
-			//	printf("Too high p-sp:%li, Size %li, getX(p):  %li",(walkers[k].p - sp),mp->size, getX(walkers[k].p, mp));
-				exit(0);
-			}
-			walkers[k].p = move(walkers[k].p,mp);
-			walkers[k].colorf(walkers[k].p, mp);
-		}
+
+
+        if(walker->p < 0){
+            printf("Too low");
+            exit(0);
+        }
+        if(walker->p > mp->size){
+        //	printf("Too high p-sp:%li, Size %li, getX(p):  %li",(walkers[k].p - sp),mp->size, getX(walkers[k].p, mp));
+            exit(0);
+        }
+        walker->p = move(walker->p,mp);
+        walker->colorf(walker->p, mp);
+
 
         if(j % mp->seedRenew == 0 && j != 0)
         {
@@ -137,14 +158,11 @@ void walk(struct metapicture* mp){
              seed();
         }
 	}
-	if(mp->printBmp){
 
-        printf("Starting to print: %s\n", mp->name);
-         verifyPictureWhenRedOnly(mp);
-        printPic(0,mp );
-	}
-	mp->done = 1;
-    printf("\nDone\n");
+
+
+
+    return NULL;
 }
 
 

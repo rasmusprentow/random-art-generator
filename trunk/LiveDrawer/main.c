@@ -88,14 +88,14 @@ int WINAPI WinMain(HINSTANCE hInstance,
    // int forceYes = 0;
     struct metapicture mp = {
         .size = 800*800,
-        .width = 800,
-        .height = 800,
+        .width = 7000,
+        .height = 5000,
         .name = "image",
         .pic = NULL,
-        .iterations = 175000000,  //.iterations = 6500000,
+        .iterations = 9750000000,  //.iterations = 6500000,
         .verbose = 1,
         .printBmpTemp = 0,
-        .printBmp = 0,
+        .printBmp = 1,
         .done = 0,
         .seedRenew = 1000,
         .printPercentage = 1000000

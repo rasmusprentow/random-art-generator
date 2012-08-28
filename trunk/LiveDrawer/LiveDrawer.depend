@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1346111145 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\livedrawer\main.c
+1346143801 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\livedrawer\main.c
 	<windows.h>
 	<gl/gl.h>
 	<stdio.h>
@@ -28,7 +28,7 @@
 	<stdint.h>
 	<time.h>
 
-1346110704 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
+1346143468 c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.h
 	"metapicture.h"
 	"bmpwrap.h"
 
@@ -44,12 +44,13 @@
 1338817168 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\metapicture.c
 	"metapicture.h"
 
-1346110618 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
+1346144485 source:c:\users\rasmus prentow\documents\programmering\random-art-generator\xag\walker.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	<stdint.h>
 	<time.h>
 	<sys/time.h>
+	<pthread.h>
 	"walker.h"
 
