@@ -13,19 +13,19 @@ void printPic(int count, struct metapicture * mp){
 	magic.magic[0] = 66;
 	magic.magic[1] = 77;
 
-	uint32_t filesz = 54 + (mp->size * sizeof(struct dot));
+	uint32_t filesz = sizeof(struct bmpfile_magic)+ sizeof(struct bmpfile_header) +sizeof(BITMAPINFOHEADER2) + (mp->size * sizeof(struct dot));
 
 	struct bmpfile_header bmp_header = {
 		.filesz = filesz,
 		.creator1 = 0,
 	    .creator2 = 0,
-		.bmp_offset = 54
+		.bmp_offset =  sizeof(struct bmpfile_magic)+ sizeof(struct bmpfile_header) +sizeof(BITMAPINFOHEADER2)
 	};
 
 
 	BITMAPINFOHEADER2 dib_header =
 	{
-		.header_sz = 40,
+		.header_sz = sizeof(BITMAPINFOHEADER2),
 		.width = mp->width,
 		.height = mp->height,
 		.nplanes = 1,
@@ -81,26 +81,37 @@ void printPic(int count, struct metapicture * mp){
 	}
 	FILE *fp = fopen(ofn, "w");
 
-	fwrite(&magic, sizeof(struct bmpfile_magic), 1,fp);
-	fwrite(&bmp_header, sizeof(struct bmpfile_header), 1,fp);
-	fwrite(&dib_header, sizeof(BITMAPINFOHEADER2), 1,fp);
-	int i;
-    for( i = 0; i < mp->size; i++){
-        fwrite(&mp->pic[i], 4, 1,fp);
+	fwrite(&magic, 1,sizeof(struct bmpfile_magic),fp);
+	fwrite(&bmp_header, 1,sizeof(struct bmpfile_header),fp);
+	fwrite(&dib_header, 1,sizeof(BITMAPINFOHEADER2),fp);
+   // fwrite(&mp->pic,4, mp->size  , fp);
+    struct dot * p = mp->pic;
+	long int i;
+    for( i = 0; i < mp->size/100; i++){
+        	//mp->pic[i].alpha =0;
+            fwrite(p, 4, 100,fp);
+            p = p + 100;
     }
 
+    printf("Total: %li \n", sizeof(struct bmpfile_magic)+ sizeof(struct bmpfile_header) +sizeof(BITMAPINFOHEADER2) + (mp->size * sizeof(struct dot)));
+    printf("bmpfile_header: %li \n", sizeof(struct bmpfile_header));
+    printf("Bitmapinfoheader: %li \n", sizeof(BITMAPINFOHEADER2));
+    printf("bmpfile_magic: %li \n", sizeof(struct bmpfile_magic));
+    printf("size: %li \n", mp->size);
+    printf("Size time dot: %li \n",(mp->size * sizeof(struct dot)));
+    printf("dot: %li \n",sizeof(struct dot));
 
-	/*
+/*
 	long int i;
-	for( i = 0; i < size; i++)
+	for( i = 0; i < mp->size; i++)
 	{
-		((struct dot)*pic).alpha = 0;
-		fwrite(&pic[i].red, 1,1,fp);
-		fwrite(&pic[i].green, 1,1,fp);
-		fwrite(&pic[i].blue, 1,1, fp);
-		fwrite(&pic[i].alpha, 1,1, fp);
+		mp->pic[i].alpha = 0;
+		fwrite(&mp->pic[i].red, 1,1,fp);
+		fwrite(&mp->pic[i].green, 1,1,fp);
+		fwrite(&mp->pic[i].blue, 1,1, fp);
+		fwrite(&mp->pic[i].alpha, 1,1, fp);
 	}
-	*/
+*/
 	fclose(fp);
 
 

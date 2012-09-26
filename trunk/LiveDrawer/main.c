@@ -64,8 +64,8 @@ int WINAPI WinMain(HINSTANCE hInstance,
                           WS_OVERLAPPEDWINDOW,
                           CW_USEDEFAULT,
                           CW_USEDEFAULT,
-                          800,
-                          800,
+                          1100,
+                          1100,
                           NULL,
                           NULL,
                           hInstance,
@@ -88,17 +88,17 @@ int WINAPI WinMain(HINSTANCE hInstance,
    // int forceYes = 0;
     struct metapicture mp = {
         .size = 800*800,
-        .width = 7000,
-        .height = 5000,
+        .width = 1100,
+        .height = 1100,
         .name = "image",
         .pic = NULL,
-        .iterations = 9750000000,  //.iterations = 6500000,
+        .iterations = 975000000000,  //.iterations = 6500000,
         .verbose = 1,
         .printBmpTemp = 0,
         .printBmp = 1,
         .done = 0,
         .seedRenew = 1000,
-        .printPercentage = 1000000
+        .printPercentage = 100000000
     };
 
 
