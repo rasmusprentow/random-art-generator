@@ -123,7 +123,7 @@ void *walk_walker(void * w){
     struct walker * walker = (struct walker *) w;
     struct metapicture * mp = walker->mp;
 
-	long int j;
+	long long int j;
 	int p = 1;
 	for(j = 0; j < mp->iterations; j++){
 		if(j % mp->printPercentage == 0 )

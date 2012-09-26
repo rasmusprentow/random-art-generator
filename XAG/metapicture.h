@@ -19,7 +19,7 @@ struct metapicture {
     int height;
     char name[20];
     struct dot * pic;
-    long int iterations;
+    long long int iterations;
     long int seedRenew;
     long int printPercentage;
     int printBmpTemp;
